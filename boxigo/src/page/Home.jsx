@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
+import MoreDetails from "../components/MoreDetails";
 
 export default function Home() {
   const [apiData, setApiData] = useState();
@@ -76,6 +77,7 @@ export default function Home() {
             </div>
           </div>
           <br />
+          <MoreDetails data={data}/>
         </div>
       ))}
       <br />
