@@ -8,6 +8,7 @@ import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import moment from "moment/moment";
+import Itemsaccordion from "./Itemsaccordion";
 
 export default function MoreDetails({ data }) {
   const [showDetails, setShowDetails] = useState(false);
