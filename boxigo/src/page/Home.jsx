@@ -6,22 +6,23 @@ import MoreDetails from "../components/MoreDetails";
 
 export default function Home() {
   const [apiData, setApiData] = useState();
-  const [loading, setloading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const url = import.meta.env.VITE_KEY_API_URL;
 
-  // Fetching Api data
-  useEffect(() => {
-    const getApiData = async () => {
-      setloading(true);
-      await axios
-        .get("http://test.api.boxigo.in/sample-data/")
-        .then(({ data }) => {
-          setApiData(data?.Customer_Estimate_Flow);
-          setloading(false);
-          console.log(data);
-        });
-    };
-    getApiData();
-  }, []);
+  useEffect(()=>{
+    const getApiData = async()=>{
+      setLoading(true)
+    await axios.get(`${url}/sample-data`)
+    .then(({data})=>{
+      
+      setApiData(data?.Customer_Estimate_Flow)
+      setLoading(false)
+      console.log(data)
+  })
+    
+    }
+    getApiData()
+    },[])
   return (
     <div className=" xl:w-[1000px] lg:w-[800px] md:w-[600px] w-full animate-[slideup_0.5s] h-screen overflow-auto pt-4">
       <p className=" mx-auto ml-[12px] font-extrabold ">My Moves</p>
@@ -77,7 +78,7 @@ export default function Home() {
             </div>
           </div>
           <br />
-          <MoreDetails data={data}/>
+          <MoreDetails data={data} />
         </div>
       ))}
       <br />
