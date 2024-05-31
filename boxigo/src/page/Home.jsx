@@ -8,11 +8,12 @@ export default function Home() {
   const [apiData, setApiData] = useState();
   const [loading, setLoading] = useState(false);
   const url = import.meta.env.VITE_KEY_API_URL;
+ 
 
   useEffect(()=>{
     const getApiData = async()=>{
       setLoading(true)
-    await axios.get(`${url}/sample-data`)
+    await axios.get(`${url}/api/sample-data`)
     .then(({data})=>{
       
       setApiData(data?.Customer_Estimate_Flow)
